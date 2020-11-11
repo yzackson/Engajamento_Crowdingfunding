@@ -9,7 +9,22 @@ class MainClass {
     int choice, run = 1;
     int vote, totalVotes = 0;
 
+    Idea newIdea = new Idea();
+
     List<Idea> ideas = new List<Idea>();
+
+    List<string> titleList = new List<string>{"Caseiro", "Babá", "Serviços de Limpeza de Janelas", "Anfitrião do Airbnb", "Livros Eletrônicos", "Revisor e Editor de Textos Freelancer", "Dublador / Narrador", "Ghostwriter"};
+
+    List<string> typeList = new List<string>{"negócios domésticos", "negócios domésticos", "negócios domésticos", "negócios domésticos", "Ideias de negócios para freelancer", "Ideias de negócios para freelancer", "Ideias de negócios para freelancer", "Ideias de negócios para freelancer"};
+
+    List<string> descriptionList = new List<string>{"Não é exatamente uma maneira de ganhar dinheiro consistentemente, mas ser caseiro, ou seja, cuidar da propriedade de outra pessoa, é uma maneira fantástica de viver em locais exóticos de todo o mundo sem pagar um centavo de aluguel.", "Ser babá não é algo apenas para adolescentes e estudantes universitários. Muito pelo contrário, se você for fazer um Au Pair, por exemplo, você pode ganhar bastante dinheiro trabalhando durante as noites e fins de semana – se você não se importar com o horário.", "Quando estou do lado de dentro de uma casa ou prédio, o que eu espero é poder ver o mundo lá fora da maneira mais clara possível. E é isso que muitos outros proprietários de casas e gerentes de escritórios também desejam. Isso cria uma demanda muito boa para empresas de limpadores de janelas, especialmente, para quem pode limpar janelas de edifícios comerciais. Isso se você gosta de adrenalina.", "O Airbnb é apenas uma ótima maneira de ganhar dinheiro alugando o seu quarto de hóspedes ou a sua sala de estar, mas além disso, é uma ótima maneira de conhecer novas pessoas e fazer novos amigos se você gostar deste tipo de coisa. Você pode até alugar um apartamento só para receber hóspedes do Airbnb e receber uma grana extra, contudo, não pense que esta será apenas uma fonte de renda passiva – você precisará estar de plantão sempre que você receber um convidado e você vai sempre precisa manter o lugar limpo para quando os hóspedes chegarem.", "Empregar as suas habilidades e o seu conhecimento em um eBook para download que oferece valor para aqueles que procuram aprender algo, avançar em suas carreiras ou começar os seus próprios negócios, é uma forte proposta de valor se você segmentar o público certo. Seja dedicado ao seu eBook, crie uma audiência e você terá uma base para apresentar o seu livro às editoras tradicionais e fechar um acordo de lançamento – então você pode escrever um dos melhores livros de negócios e realmente criar sua marca pessoal.", "Enquanto ainda houver a palavra escrita, sempre haverá necessidade de editores e revisores. A edição e a revisão independente não só pagam um salário decente por hora, mas também lhe dão a oportunidade de ler sobre temas potencialmente interessantes. Além disso, escrever e editar textos como freelancer podem proporcionar-lhe um estilo de vida que permita a você viajar pelo mundo como um nômade digital. Você pode encontrar muitas oportunidades de trabalho de empresas e indivíduos que precisam de serviços de redação, revisão e edição no Upwork.", "Se você fala como James Earl Jones ou Scarlett Johansson, uma série de editores digitais (incluindo desenvolvedores de jogos, cineastas de animação e produtores de vídeo de treinamento) pagam muito dinheiro para terem a sua voz talentosa dublando ou narrando seus materiais. O seu investimento para esse fim não é muito intensivo. Ou seja, uma grande ideia de negócio. Você pode encontrar esses editores à procura de sua voz em sites como o PeoplePerHour, Freelancer e Upwork.", "O Ghostwriting paga muito bem e se você é talentoso em pesquisar e criar conteúdo excelente sobre um determinado assunto, você pode construir rapidamente uma lista de clientes que remuneram muito bem. Escritores como Jeff Haden criaram carreiras muito lucrativas para si mesmos, escrevendo para executivos de empresas e CEOs – e Jeff também começou a sua carreira de ghostwriting como um trabalho paralelo enquanto trabalhava de gerente de uma fábrica em tempo integral."};
+
+    List<string> nameList = new List<string>{"Alexandre", "André", "Antônio", "Eduardo", "Agatha", "Camila", "Esther", "Isis"};
+
+    for (int i = 0; i<titleList.Count; i++) {
+      newIdea = new Idea(titleList[i], typeList[i], descriptionList[i], nameList[i]);
+      ideas.Add(newIdea);
+    }
 
     Result result = new Result();
 
@@ -39,14 +54,15 @@ class MainClass {
         }
         */
 
-        for(int i = 0; i < ideas.Count; i++) {
+        while  {
           ideas[i].id = i + 1;
+          Console.Clear();
           Console.Write("\n\n---------- <<<<<<<<<< Ideia {0} >>>>>>>>>> ----------\n\n", ideas[i].id);
-          Console.Write("Título: {0}\nArea: {1}\nDescrição: {2}", ideas[i].title, ideas[i].type, ideas[i].description);
+          Console.WriteLine("Título: {0}\nArea: {1}\nDescrição: {2}", ideas[i].title, ideas[i].type, ideas[i].description);
           /*Console.Write("\n\n---------- <<<<<<<<<< Ideia {0} >>>>>>>>>> ----------\n\n", ideas[i].id);*/
         }
 
-        Console.Write("Digite o número da ideia escolhida: ");
+        Console.Write("\nDigite o número da ideia escolhida: ");
         vote = int.Parse(Console.ReadLine());
         vote -= 1;
         ideas[vote].votes += 1;
@@ -67,7 +83,7 @@ class MainClass {
         Console.Write("Descrição: ");
         description = Console.ReadLine();
 
-        Idea newIdea = new Idea(title, type, description, user.name);
+        newIdea = new Idea(title, type, description, user.name);
 
         ideas.Add(newIdea);
 
