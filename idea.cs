@@ -6,11 +6,12 @@ class Idea {
   //int _rank;
 
   //CCONSTRUCTOR
-  public Idea (string title, string type, string description, string name) {
+  public Idea (string title, string type, string description, string name, int id) {
     _title = title;
     _type = type;
     _description = description;
     _author = name;
+    _id = id;
   }
 
   public Idea () {
@@ -50,6 +51,11 @@ class Idea {
   public int id {
     get { return _id; }
     set { _id = value; }
+  }
+
+  public string author {
+    get { return _author; }
+    set { _author = value; }
   }
   
 }
